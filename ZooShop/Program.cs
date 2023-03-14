@@ -1,4 +1,13 @@
+using ZooShop.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ZooShopContext>(options => options.UseSqlServer(connection));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
