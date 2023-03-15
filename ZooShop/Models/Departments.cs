@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZooShop.Models
 {
@@ -7,7 +8,11 @@ namespace ZooShop.Models
         [Key]
         public int Department_id { get; set; }
         public string Department_name { get; set; }
-        public Employees Employees { get; set; }   
-        public int Employee_id { get; set;}
+        [ForeignKey("Employee")]
+        public int Employee_id { get; set; }
+
+        public Employees Employee { get; set; }
+        
+
     }
 }

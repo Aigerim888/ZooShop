@@ -1,0 +1,36 @@
+﻿@model ZooShop.Models.Storagees
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Storagees</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Storage_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Storage_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.The_rest_of_goods)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.The_rest_of_goods)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department.Department_id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Storage_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

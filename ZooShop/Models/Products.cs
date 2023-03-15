@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZooShop.Models
 {
@@ -8,14 +9,21 @@ namespace ZooShop.Models
       public int Product_id {get; set;}
       public string Name { get; set; }
       public int Price { get; set; }
-      public Brands Brands { get; set; }
-      public int Brand_id { get;set;} 
-      public Categories Categories { get; set; }
+
+      [ForeignKey("Brand")]
+       
+      public int Brand_id { get;set;}
+      public Brands Brand { get; set; }
+      [ForeignKey("Category")]
+      
       public int Category_id { get; set; }
-      public Storagees Storagees { get; set; }
-      public int Storagee_id { get; set; }
-        
-        
+      public Categories Category { get; set; }
+       [ForeignKey("Storage")]
+      
+      public int Storage_id { get; set; }
+       public Storagees Storage { get; set; }
+
+
 
 
     }
