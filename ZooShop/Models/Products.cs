@@ -13,15 +13,13 @@ namespace ZooShop.Models
       [ForeignKey("Brand")]
        
       public int Brand_id { get;set;}
-      public Brands Brand { get; set; }
+      public Brands? Brand { get; set; }
       [ForeignKey("Category")]
-      
       public int Category_id { get; set; }
-      public Categories Category { get; set; }
-       [ForeignKey("Storage")]
-      
+      public Categories? Category { get; set; }
+      [ForeignKey("Storage")]
       public int Storage_id { get; set; }
-       public Storagees Storage { get; set; }
+      public Storagees? Storage { get; set; }
 
 
 

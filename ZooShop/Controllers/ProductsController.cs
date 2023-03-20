@@ -47,6 +47,7 @@ namespace ZooShop.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            List<Products> product = _context.Products.ToList();
             return View();
         }
 

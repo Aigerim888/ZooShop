@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using ZooShop.Models;
 
@@ -47,7 +49,7 @@ namespace ZooShop.Controllers
         // GET: Storagees/Create
         public IActionResult Create()
         {
-            ViewData["Department_id"] = new SelectList(_context.Departments, "Department_id", "Department_id");
+            ViewData ["Department_id"]= new SelectList(_context.Departments, "Department_id", "Department_id");
             return View();
         }
 
@@ -56,7 +58,8 @@ namespace ZooShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Storage_id,Storage_name,The_rest_of_goods,Department_id")] Storagees storagees)
+
+        public async Task<IActionResult> Create([Bind("Storage_id,Storage_name,The_rest_of_goods,[ForeignKey(Department_id)]")] Storagees storagees)
         {
             if (ModelState.IsValid)
             {
